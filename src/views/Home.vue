@@ -1,23 +1,21 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ItemTable msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'
 import { State, Action, Getter } from 'vuex-class';
+import ItemTable from "@/components/ItemTable.vue";
 
 @Component({
   name: 'home',
   components: {
-    HelloWorld
+    ItemTable
   }
 })
 export default class Home extends Vue{
-
-
 }
 </script>

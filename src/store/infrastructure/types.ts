@@ -4,18 +4,21 @@ export interface InfrastructureState {
 }
 
 
-export interface Item {
-    id: number;
+export interface Item  extends ItemIn{
+    typeTitle?: string;
+    typePrice?: number;
+    typeSize?: string;
+    typeItemClassId?: number;
+    typeItemClassTitle?: string;
+    state?: string;
+    typeSizeId?: number;
+    stateId?: number;
+}
+
+export interface ItemIn {
+    id?: number;
     title: string;
     project: string;
     typeId: number;
-    typeTitle: string;
-    typePrice: number;
-    typeSize: string;
-    typeItemClassId: number;
-    typeItemClassTitle: string;
-    state: string;
-    typeSizeId: number;
-    stateId: number;
 }
 

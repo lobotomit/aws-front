@@ -3,8 +3,8 @@ import {InfrastructureState, Item} from './types';
 import { RootState } from '../types';
 
 export const getters: GetterTree<InfrastructureState, RootState> = {
-    getItems(state): Item[] | undefined {
+    getItems(state): Item[]{
         const { items } = state;
-        return items;
+        return (items == undefined) ? [] : items;
     }
 };
