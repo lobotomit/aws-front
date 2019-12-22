@@ -1,19 +1,19 @@
 import { ActionTree } from 'vuex';
 import axios from 'axios';
-import { ProfileState, User } from './types';
+import {InfrastructureState, Item} from './types';
 import { RootState } from '../types';
 
 
-export const actions: ActionTree<ProfileState, RootState> = {
+export const actions: ActionTree<InfrastructureState, RootState> = {
     fetchData({ commit }): any {
         axios({
-            url: 'https://....'
+            url: process.env.VUE_APP_URL +'/api/v1/item'
         }).then((response) => {
-            const payload: User = response && response.data;
-            commit('profileLoaded', payload);
+            const payload: Item[] = response && response.data;
+            commit('itemLoaded', payload);
         }, (error) => {
             console.log(error);
-            commit('profileError');
+            commit('itemError');
         });
     }
 };

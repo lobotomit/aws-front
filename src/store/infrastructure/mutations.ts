@@ -1,13 +1,13 @@
 import { MutationTree } from 'vuex';
-import { ProfileState, User } from './types';
+import { InfrastructureState, Item } from './types';
 
-export const mutations: MutationTree<ProfileState> = {
-    profileLoaded(state, payload: User) {
+export const mutations: MutationTree<InfrastructureState> = {
+    itemLoaded(state, payload: Item[]) {
         state.error = false;
-        state.user = payload;
+        state.items = payload;
     },
-    profileError(state) {
+    itemError(state) {
         state.error = true;
-        state.user = undefined;
+        state.items = undefined;
     }
 };

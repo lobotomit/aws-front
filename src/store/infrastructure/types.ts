@@ -1,12 +1,21 @@
-export interface User {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone?: string;
+export interface InfrastructureState {
+    items?: Item[];
+    error: boolean;
 }
 
-export interface InfrastructureState {
-    user?: User;
-    error: boolean;
+
+export interface Item {
+    id: number;
+    title: string;
+    project: string;
+    typeId: number;
+    typeTitle: string;
+    typePrice: number;
+    typeSize: string;
+    typeItemClassId: number;
+    typeItemClassTitle: string;
+    state: string;
+    typeSizeId: number;
+    stateId: number;
 }
 
