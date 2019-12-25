@@ -1,25 +1,28 @@
 <template>
     <transition name="modal">
-        <div class="modal-mask ">
-            <div class="modal-wrapper">
-                <div class="modal-container">
-                    <div class="modal-header">
+        <div class="bg-transparent modal-mask fixed z-50 top-0 left-0 h-full w-full bg-gray-100 table bg-transparent">
+            <div class="table-cell align-middle">
+                <div class="modal-container w-full sm:w-5/6 md:2/3 mt-0 m-auto pt-3 p-4 bg-white rounded-sm shadow-l">
+                    <div>
                         <slot name="header">
                             default header
                         </slot>
                     </div>
-                    <div class="modal-body">
+                    <div class="pt-4 p-0">
                         <slot name="body">
                             default body
                         </slot>
                     </div>
                     <div class="modal-footer">
-                        <slot name="footer">
-                            default footer
-                            <button class="modal-default-button" @click="$emit('close')">
-                                OK
+                        <div>
+                            <slot name="footer">
+
+                            </slot>
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-1/3"
+                                    @click="$emit('close')">
+                                close
                             </button>
-                        </slot>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,6 +33,7 @@
 <script>
     import {Vue} from "vue-property-decorator";
     import Component from "vue-class-component";
+
     @Component({
         name: "ModalComponent"
     })
@@ -40,54 +44,14 @@
 
 <style scoped>
     .modal-mask {
-        position: fixed;
-        z-index: 9998;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
         background-color: rgba(0, 0, 0, .5);
-        display: table;
         transition: opacity .3s ease;
     }
 
-    .modal-wrapper {
-        display: table-cell;
-        vertical-align: middle;
-    }
-
     .modal-container {
-        width: 300px;
-        margin: 0px auto;
-        padding: 20px 30px;
-        background-color: #fff;
-        border-radius: 2px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
         transition: all .3s ease;
         font-family: Helvetica, Arial, sans-serif;
     }
-
-    .modal-header h3 {
-        margin-top: 0;
-        color: #42b983;
-    }
-
-    .modal-body {
-        margin: 20px 0;
-    }
-
-    .modal-default-button {
-        float: right;
-    }
-
-    /*
-     * The following styles are auto-applied to elements with
-     * transition="modal" when their visibility is toggled
-     * by Vue.js.
-     *
-     * You can easily play with the modal transition by editing
-     * these styles.
-     */
 
     .modal-enter {
         opacity: 0;
